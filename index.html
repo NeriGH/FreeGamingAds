@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="css/general.css" />
     <link rel="stylesheet" href="css/style.css" />
     <title>FreeGaming</title>
+    <script
+    type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+  ></script>
   </head>
   <body>
     <!-- HEADER -->
@@ -16,11 +20,10 @@
       </a>
       <nav class="main-nav">
         <ul class="main-nav-list">
-          <li><a class="main-nav-link" href="#">OFFRE</a></li>
-          <li><a class="main-nav-link" href="#">TITRE</a></li>
-          <li><a class="main-nav-link" href="#">MATOS</a></li>
-          <li><a class="main-nav-link" href="#">PRIX</a></li>
-          <li><a class="main-nav-link nav-cta" href="#">CTA</a></li>
+          <li><a class="main-nav-link" href="#offer">OFFRES</a></li>
+          <li><a class="main-nav-link" href="#props">EQUIPEMENT</a></li>
+          <li><a class="main-nav-link" href="#pricing">PRIX</a></li>
+          <li><a class="main-nav-link nav-cta" href="#cta">CONTACTEZ-NOUS</a></li>
         </ul>
       </nav>
     </header>
@@ -46,7 +49,7 @@
       </div>
     </section>
 
-    <section class="section-how">
+    <section class="section-how" id="offer">
       <div class="container">
         <span class="subheading">comment ça marche ?</span>
         <h2 class="heading-secondary">Nos offres FREE</h2>
@@ -93,7 +96,9 @@
       </div>
     </section>
 
-    <section class="section-options gradient-border">
+    <!-- SECTION OPTION -->
+
+    <section class="section-options gradient-border" id="options">
       <div class="container grid grid--3-cols">
         <div class="feature">
           <p class="feature-title option-heading-discover">DECOUVRIR</p>
@@ -121,17 +126,65 @@
       </div>
     </section>
 
+    <section class="section-props" id="props">
+      <div class="container" >
+        <span class="subheading">Votre future équipement</span>
+        <h2 class="heading-secondary" >
+          Plus fort, Plus confort, Plus performant. C'est Free
+        </h2>
+      </div>
+
+      <div class="container grid grid--4-cols">
+        <div class="props-card gradient-border">
+          <model-viewer
+          class="props-model"
+          src="https://rawcdn.githack.com/BabylonJS/Exporters/422493778d6ffbc2980e83e46eb94729bbeada0c/Maya/Samples/glTF%202.0/T-Rex/trex_running.gltf"
+               alt="dragon"
+               auto-rotate
+               camera-controls
+             ></model-viewer>
+        </div>
+        <div class="props-card gradient-border">
+          <model-viewer
+          class="props-model"
+          src="https://rawcdn.githack.com/BabylonJS/Exporters/422493778d6ffbc2980e83e46eb94729bbeada0c/Maya/Samples/glTF%202.0/T-Rex/trex_running.gltf"
+               alt="dragon"
+               auto-rotate
+               camera-controls
+             ></model-viewer>
+        </div>
+        <div class="props-card gradient-border">
+          <model-viewer
+          class="props-model"
+          src="https://rawcdn.githack.com/BabylonJS/Exporters/422493778d6ffbc2980e83e46eb94729bbeada0c/Maya/Samples/glTF%202.0/T-Rex/trex_running.gltf"
+               alt="dragon"
+               auto-rotate
+               camera-controls
+             ></model-viewer>
+        </div>
+        <div class="props-card gradient-border">
+          <model-viewer
+          class="props-model"
+          src="https://rawcdn.githack.com/BabylonJS/Exporters/422493778d6ffbc2980e83e46eb94729bbeada0c/Maya/Samples/glTF%202.0/T-Rex/trex_running.gltf"
+               alt="dragon"
+               auto-rotate
+               camera-controls
+             ></model-viewer>
+        </div>
+      </div>
+    </section>
+
     <!-- PRICING -->
 
     <section class="section-pricing">
-      <div class="container">
+      <div class="container" >
         <span class="subheading">Nos prix</span>
-        <h2 class="heading-secondary">
+        <h2 class="heading-secondary" >
           Des prix compétitifs pour des performances exceptionnelles
         </h2>
       </div>
 
-      <div class="container grid grid--2-cols margin-bottom-md">
+      <div class="container grid grid--2-cols margin-bottom-md" id="pricing">
         <div class="pricing-plan pricing-plan--starter">
           <header class="plan-header">
             <p class="plan-name">Offre pop</p>
@@ -240,7 +293,7 @@
       </div>
     </section>
 
-    <section class="section-cta">
+    <section class="section-cta" id="cta">
       <div class="container">
         <div class="cta gradient-border">
           <div class="cta-text-box">
