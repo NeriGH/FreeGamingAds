@@ -52,6 +52,14 @@ Medium: 11px
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
+:root {
+  --background-color-gaming: #1d1f20;
+  --white-color--gaming: #fff;
+
+  --background-color-free: #d1dfe7;
+  --black-color-free: #333;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -72,7 +80,7 @@ body {
   font-family: "Montserrat", sans-serif;
   line-height: 1;
   font-weight: 400;
-  color: #fff;
+  color: var(--white-color--gaming);
   background: #333;
 
   /* Only works if there is nothing absolutely positioned in relation to body */
@@ -83,7 +91,7 @@ body {
 /* Firefox */
 * {
   scrollbar-width: auto;
-  scrollbar-color: #cc0000 #2a2a2a;
+  scrollbar-color: #cc0000 var(--background-color-gaming);
 }
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
@@ -98,6 +106,22 @@ body {
   border: 3px none #cc0000;
 }
 
+#switch-mode-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+#switch-mode-btn i {
+  font-size: 24px;
+  color: #fff;
+}
+
 /**************************/
 /* HEADER */
 /**************************/
@@ -106,7 +130,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1d1f20;
+  background-color: var(--background-color-gaming);
 
   /* Because we want header to b    e sticky later */
   height: 5.2rem;
@@ -132,7 +156,7 @@ body {
 .main-nav-link:visited {
   display: inline-block;
   text-decoration: none;
-  color: #fff;
+  color: var(--white-color--gaming);
   font-weight: 500;
   font-size: 1.4rem;
   transition: all 0.3s;
@@ -147,7 +171,7 @@ body {
 .main-nav-link.nav-cta:visited {
   padding: 1.2rem 2.4rem;
   border-radius: 9px;
-  color: #fff;
+  color: var(--white-color--gaming);
   background-color: #cc0000;
 }
 
@@ -163,15 +187,20 @@ body {
   padding: 2.4rem 0;
 }
 
-.video-box {
-  max-width: 400rem;
-  margin: 0 12.8rem;
+.hero .title {
+  font-size: 8rem;
+  line-height: 15rem;
+  text-align: center;
+  transition: all ease 0.3s;
 }
 
-.video-properties {
-  width: 100%;
-  height: 80vh;
-  border-radius: 1.2rem;
+.hero .title:hover {
+  scale: 1.1;
+  transition: all ease 0.3s;
+}
+
+.hero .hero-subtitle {
+  color: #cc0000;
 }
 
 /* SECTION OFFERS */
@@ -186,27 +215,73 @@ body {
   margin: 0 12.8rem;
   height: 30rem;
 }
+
+.title-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 4rem;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  position: relative;
+  max-width: 80%;
+  max-height: 90%;
+}
+
+.modal video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
 /**************************/
 /* FEATURED IN SECTION */
 /**************************/
 
 .section-featured {
-  padding: 4.8rem 0 3.2rem 0;
+  padding: 8.4rem 0;
+  background: var(--background-color-gaming);
+  margin-bottom: 2.4rem;
 }
 
 .heading-featured-in {
-  font-size: 4.8rem;
+  font-size: 6.4rem;
   text-transform: uppercase;
   letter-spacing: 0.75px;
   font-weight: 500;
   text-align: center;
   margin-bottom: 2.4rem;
-  color: #fff;
+  color: var(--white-color--gaming);
   text-align: center;
 }
 
 .strong-featured-in {
   color: #cc0000;
+  font-weight: 700;
 }
 
 /**************************/
@@ -228,6 +303,39 @@ body {
 .step-description {
   font-size: 1.8rem;
   line-height: 1.8;
+}
+
+.step-freebox-box {
+  margin-top: 1.2rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.freebox-details {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+}
+
+.custom-heading {
+  color: #cc0000;
+  font-size: 4.2rem;
+  font-weight: bold;
+}
+
+.freebox-title {
+  font-size: 2.4rem;
+}
+
+.freebox-text {
+  display: inline-block;
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.4;
+}
+
+.freebox-subtext {
+  font-size: 1.2rem;
 }
 
 .step-img-box {
@@ -322,7 +430,7 @@ body {
 
 .pricing-plan--starter {
   justify-self: end;
-  border: 2px solid #fff;
+  border: 2px solid var(--white-color--gaming);
   padding: 4.6rem;
 }
 
@@ -376,7 +484,7 @@ body {
 }
 
 .plan-name {
-  color: #fff;
+  color: var(--white-color--gaming);
   font-weight: 600;
   font-size: 2rem;
   text-transform: uppercase;
@@ -397,10 +505,14 @@ body {
   margin-right: 0.8rem;
 }
 
+.little {
+  font-size: 1.5rem;
+}
+
 .plan-text {
   font-size: 1.6rem;
   line-height: 1.6;
-  color: #fff;
+  color: var(--white-color--gaming);
 }
 
 .plan-sing-up {
@@ -415,10 +527,10 @@ body {
 }
 
 .feature-icon {
-  color: #cc0000;
+  color: var(--white-color--gaming);
   height: 3.2rem;
   width: 3.2rem;
-  background-color: #fff;
+  border: 2px solid var(--white-color--gaming);
   margin-bottom: 3.2rem;
   padding: 1.6rem;
   border-radius: 50%;
@@ -439,7 +551,7 @@ body {
 /* PRICE BORDER */
 .gradient-border {
   --borderWidth: 3px;
-  background: #1d1f20;
+  background: var(--background-color-gaming);
   position: relative;
   border-radius: var(--borderWidth);
 }
@@ -488,7 +600,7 @@ body {
   /* padding: 9.6rem 0 12.8rem 0; */
 
   /* top / horizontal / left */
-  padding: 4.8rem 0 12.8rem;
+  padding: 4.8rem 12.8rem 0 12.8rem;
 }
 
 .cta {
@@ -499,7 +611,7 @@ body {
 
 .cta-text-box {
   padding: 4.8rem 6.4rem 6.4rem 6.4rem;
-  color: #fff;
+  color: var(--white-color--gaming);
 }
 
 .cta .heading-secondary {
@@ -548,7 +660,7 @@ body {
   font-family: inherit;
   color: #aaa;
   border: none;
-  background-color: #fff;
+  background-color: var(--white-color--gaming);
   border-radius: 9px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
@@ -570,12 +682,44 @@ body {
 }
 
 /**************************/
+/* PLAYNOW */
+/**************************/
+
+.section-playnow {
+  padding: 4.8rem 0 3.2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 8rem;
+  height: 8rem;
+  border: 1px solid var(--background-color-gaming);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  margin-right: 10px;
+  color: #cc0000;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.card {
+  background-color: var(--background-color-gaming);
+}
+
+/**************************/
 /* FOOTER */
 /**************************/
 
 .footer {
   padding: 2.4rem 0;
-  background: #1d1f20;
+  background: var(--background-color-gaming);
 }
 
 .flex--footer {

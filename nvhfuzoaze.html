@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Easter Egg - Compte à rebours</title>
+    <link rel="stylesheet" href="easter.css" />
+  </head>
+  <body>
+    <div class="countdown" id="countdown"></div>
+    <div class="progress-container">
+      <div class="progress" id="progress"></div>
+    </div>
+    <script>
+      const countdownElement = document.getElementById("countdown");
+      const progressElement = document.getElementById("progress");
+      const targetDate = new Date("2023-03-24T16:10:00"); // Date de l'Easter Egg
+      const startDate = new Date("2023-03-24T08:00:00"); // Date actuelle au chargement de la page
+
+      function updateCountdown() {
+        const now = new Date();
+        const remainingTime = targetDate - now;
+        const totalTime = targetDate - startDate;
+        const progress = 100 - (remainingTime / totalTime) * 100;
+
+        const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor(
+          (remainingTime % (1000 * 60 * 60)) / (1000 * 60)
+        );
+        const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+        countdownElement.innerHTML = `
+        <span><div class="circle gradient-border">${days}</div><div class="label">jours</div></span>
+        <span><div class="circle">${hours}</div><div class="label">heures</div></span>
+        <span><div class="circle">${minutes}</div><div class="label">minutes</div></span>
+        <span><div class="circle">${seconds}</div><div class="label">secondes</div></span>
+      `;
+
+        progressElement.style.width = `${progress}%`;
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    </script>
+  </body>
+</html>
